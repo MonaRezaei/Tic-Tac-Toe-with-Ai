@@ -25,10 +25,7 @@ oImage.src = "assets/img/O.png";
 let gameData = new Array(9);
 let currentPlayer = humanPlayer;
 let gameOver = false;
-let counterX = 1;
-let counterO = 1;
-let finalResultX =  localStorage.getItem('counterX');
-let finalResultO =  localStorage.getItem('counterO');
+
 
 
 const winCombos = [
@@ -40,7 +37,7 @@ const winCombos = [
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
-]
+];
 
 drawBoard();
 
@@ -119,9 +116,9 @@ function clickPlayer(e) {
 
 function minimax(gameData, PLAYER) {
 
-    if (isWinner(gameData, aiPlayer)) return { evaluation: +10 };
+    if (isWinner(gameData, aiPlayer))    return { evaluation: +10 };
     if (isWinner(gameData, humanPlayer)) return { evaluation: -10 };
-    if (isTie(gameData)) return { evaluation: 0 };
+    if (isTie(gameData))                 return { evaluation: 0 };
 
     let emptySpaces = getEmptySpaces(gameData);
     let moves = [];
@@ -130,7 +127,6 @@ function minimax(gameData, PLAYER) {
 
         let id = emptySpaces[i];
         let backup = gameData[id];
-
 
         gameData[id] = PLAYER;
         let move = {};
@@ -218,18 +214,12 @@ function showGameOver(player) {
     if (currentPlayer = player == "X") {
 
         imgResult.src = "assets/img/win.png";
-
-        xResult.innerHTML = `X : ${finalResultX}`;
-        counterX++;
-        localStorage.setItem('counterX', finalResultX);
-
+        xResult.innerHTML = `X : Win`;
+      
     } else if (currentPlayer = player == "O") {
 
         imgResult.src = "assets/img/lose.png";
-        oResult.innerHTML = `O : ${counterO++}`;
-        counterO++;
-        localStorage.setItem('counterO', finalResultO);
-       
+        oResult.innerHTML = `O : Win`;
 
     } else if (currentPlayer = player == "tie") {
 
@@ -244,11 +234,9 @@ function showGameOver(player) {
 function drawOnBoard(player, i, j) {
     let img = player == "X" ? xImage : oImage;
     ctx.drawImage(img, j * spaceSize, i * spaceSize);
-
 }
 
 function playAgain() {
-
     modal.style.transform = 'scale(0)';
-
+    location.reload();
 }

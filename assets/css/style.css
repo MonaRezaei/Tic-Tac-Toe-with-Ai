@@ -56,30 +56,6 @@ h1 {
     cursor: pointer;
 }
 
-/* .wrapper {
-    width: 500px;
-    height: 500px;
-    margin: 60px auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 15px;
-} */
-
-/* .cell {
-    color: white;
-    background-color: #F8F8F8;
-    font-weight: bold;
-    font-size: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    box-shadow: 2px 2px 10px 0 black;
-    cursor: pointer;
-    font-family: 'protest-riot';
-} */
-
 .o {
     background-color: #50B6BB;
 }
@@ -125,8 +101,6 @@ button:hover {
     align-items: center;
     transform: scale(0);
     transition: transform 0.4s;
-   
-
 
 }
 
